@@ -1,9 +1,12 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import BooksContext from "../context/books";
 
 function BookEdit({ onSubmit, bookToEdit }) {
     const [title, setTitle] = useState(bookToEdit.title);
     const [author, setAuthor] = useState(bookToEdit.author);
     const [pages, setPages] = useState(bookToEdit.pages);
+
+    const { editBookById } = useContext(BooksContext)
 
     const handleChangeInTitle = (event) => {
         setTitle(event.target.value);
@@ -22,7 +25,8 @@ function BookEdit({ onSubmit, bookToEdit }) {
         const updatedBook = {...bookToEdit, title: title, author: author, pages: pages};
         // setBook(createdBook); // This doesn't work because state updates in React are asynchronous
         // onCreate(book);
-        onSubmit(updatedBook);
+        onSubmit();
+        editBookById(updatedBook);
         setTitle('');
         setAuthor('');
         setPages('');

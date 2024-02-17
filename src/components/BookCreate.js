@@ -1,33 +1,37 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import BooksContext from "../context/books";
 
-function BookCreate( { onCreate } ) {
-const [title, setTitle] = useState('');
-const [author, setAuthor] = useState('');
-const [pages, setPages] = useState('');
+function BookCreate() {
 
-const handleChangeInTitle = (event) => {
-    setTitle(event.target.value);
-}
+    const { createBook } = useContext(BooksContext);
 
-const handleChangeInAuthor = (event) => {
-    setAuthor(event.target.value);
-}
+    // These are specifically for the forms used to create a book
+    // Not for any sort of data persistence.
+    const [title, setTitle] = useState('');
+    const [author, setAuthor] = useState('');
+    const [pages, setPages] = useState('');
 
-const handleChangeInPages = (event) => {
-    setPages(event.target.value);
-}
+    const handleChangeInTitle = (event) => {
+        setTitle(event.target.value);
+    }
+
+    const handleChangeInAuthor = (event) => {
+        setAuthor(event.target.value);
+    }
+
+    const handleChangeInPages = (event) => {
+        setPages(event.target.value);
+    }
 
 
-const handleSubmit = (event) => { // create a new book
-    event.preventDefault(); // the default is to refresh the page, this prevents that. 
-    const createdBook = {title: title, author: author, pages: pages};
-    // setBook(createdBook); // This doesn't work because state updates in React are asynchronous
-    // onCreate(book);
-    onCreate(createdBook);
-    setTitle('');
-    setAuthor('');
-    setPages('');
-}
+    const handleSubmit = (event) => { // create a new book
+        event.preventDefault(); // the default is to refresh the page, this prevents that. 
+        const createdBook = {title: title, author: author, pages: pages};
+        createBook(createdBook);
+        setTitle('');
+        setAuthor('');
+        setPages('');
+    }
 
     return (
         <div>

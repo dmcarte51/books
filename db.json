@@ -1,12 +1,6 @@
 {
   "books": [
     {
-      "id": 5,
-      "title": "Harry",
-      "author": "Potter",
-      "pages": "321"
-    },
-    {
       "id": 424,
       "title": "Harry",
       "author": "Pothead",
@@ -35,12 +29,6 @@
       "author": "rew",
       "pages": "321",
       "id": 627
-    },
-    {
-      "title": "rewq",
-      "author": "bvvcx",
-      "pages": "32",
-      "id": 628
     }
   ]
 }

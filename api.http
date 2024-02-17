@@ -1,0 +1,24 @@
+GET http://127.0.0.1:3001/books HTTP/1.1
+Content-Type: application/json
+
+###
+
+POST http://127.0.0.1:3001/books HTTP/1.1
+Content-Type: application/json
+
+{
+  "title": "The Catcher in the Rye321",
+  "author": "J.D. Saling",
+  "pages": 1931
+}
+
+###
+
+PUT http://127.0.0.1:3001/books/1 HTTP/1.1
+Content-Type: application/json
+
+{
+    "title": "The Catcher in the Rye YOOOOO",
+    "author": "J.D. Salinger",
+    "pages": 1951
+}

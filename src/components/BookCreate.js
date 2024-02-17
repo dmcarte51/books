@@ -20,7 +20,7 @@ const handleChangeInPages = (event) => {
 
 const handleSubmit = (event) => { // create a new book
     event.preventDefault(); // the default is to refresh the page, this prevents that. 
-    const createdBook = {id: Math.round(Math.random() * 1000), title: title, author: author, pages: pages};
+    const createdBook = {title: title, author: author, pages: pages};
     // setBook(createdBook); // This doesn't work because state updates in React are asynchronous
     // onCreate(book);
     onCreate(createdBook);
